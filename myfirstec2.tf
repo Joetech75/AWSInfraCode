@@ -1,15 +1,11 @@
-provider "aws"{ 
-  region = "ap-southeast-1"
-  
-}
-
+/*
 #create a ec2 instance 
-
 resource "aws_instance" "myfirstec2" {
-  count = 6
-  ami           = "ami-01112b32e723178b2"
-  instance_type = "t2.micro"
-  availability_zone = "ap-southeast-1a"
-  tags = {"Name": "myfirstec2Instance","env": "dev"}
+  ami               = var.server_amis   
+  instance_type     = var.machine_type  
+  availability_zone = var.az  
+  #subnet_id = "aws_subnet.public_subnet" 
+  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+  tags              = { "Name" : "myfirstec2Instance", "env" : "dev" }
 }
-
+*/
