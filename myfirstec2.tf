@@ -10,10 +10,11 @@ resource "aws_instance" "myfirstec2" {
 }
 
 resource "aws_instance" "secondec2" {
+  count = 2
   ami               = var.server_ami2  
   instance_type     = var.machine_type  
   availability_zone = var.az  
   #subnet_id = "aws_subnet.public_subnet" 
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-  tags              = { "Name" : "mysecondec2Instance", "env" : "test" }
+  tags              = { "Name" : "mysecondec2Instance(count)", "env" : "test" }
 }
