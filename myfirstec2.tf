@@ -10,7 +10,7 @@ resource "aws_instance" "myfirstec2" {
 }
 
 resource "aws_instance" "secondec2" {
-  count = 2
+  count = 3
   ami               = var.server_ami2  
   instance_type     = var.machine_type  
   availability_zone = var.az  
